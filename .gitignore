@@ -1,0 +1,24 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+env/
+
+
+# Django stuff
+*.log
+*.pot
+*.pyc
+*.sqlite3
+db.sqlite3
+
+# Environment variables and secrets
+.env
+
+# VS Code
+.vscode/
+
+# macOS and Windows OS junk
+.DS_Store
+Thumbs.db
