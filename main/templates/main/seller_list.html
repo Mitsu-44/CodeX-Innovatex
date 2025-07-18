@@ -1,0 +1,97 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<style>
+  body {
+    background: #f3faf4;
+  }
+
+  .seller-card {
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 28px;
+    background: #fff;
+    transition: all 0.4s ease;
+    transform: scale(1);
+    height: 100%;
+  }
+
+  .seller-card:hover {
+    box-shadow: 0 10px 24px rgba(0, 128, 0, 0.2);
+    transform: scale(1.03);
+    background-color: #f9fef9;
+  }
+
+  .badge-verified {
+    background: #d4f8e8;
+    color: #2b9348;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 10px;
+  }
+
+  .tag {
+    background: #e6f4ea;
+    color: #2d6a4f;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 13px;
+    margin: 6px 6px 0 0;
+    display: inline-block;
+    transition: all 0.3s ease;
+  }
+
+  .tag:hover {
+    background-color: #d1f0dc;
+    cursor: pointer;
+  }
+
+  .btn-green {
+    background-color: #28a745;
+    color: white;
+    transition: all 0.3s;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+  }
+
+  .btn-green:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+
+  .seller-card p {
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    margin-top: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+</style>
+
+<div class="container mt-5">
+  <h2 class="text-center fw-bold mb-4">Available Sellers</h2>
+  <div class="row gy-4">
+    {% for seller in sellers %}
+    <div class="col-md-4">
+      <div class="seller-card">
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          <h4 class="fw-bold">{{ seller.name }}</h4>
+          <span class="badge badge-verified">Verified</span>
+        </div>
+        <p class="text-muted"><i class="bi bi-geo-alt"></i> {{ seller.location }}</p>
+        <p class="text-muted"><i class="bi bi-telephone"></i> +{{ seller.contact }}</p>
+        <p><strong>Experience:</strong> {{ seller.experience }}</p>
+        <p class="section-title"><strong>🌿 Interested in:</strong></p>
+        <div class="mb-4">
+          {{ seller.interested }}
+        </div>
+        <button class="btn btn-green w-100">Contact Seller</button>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

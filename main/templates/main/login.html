@@ -1,0 +1,163 @@
+{% extends 'main/base.html'%}
+
+
+{%block content%}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #ecfdf5;
+      color: #0f172a;
+    }
+
+    .container {
+  max-width: 460px;
+  margin: 80px auto;
+  background: linear-gradient(to bottom right, #ffffff, #f0fdf4);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-top:30px;
+    }
+
+    .form-header h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    .form-header p {
+      font-size: 14px;
+      color: #475569;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .form-group label i {
+      margin-right: 6px;
+      color: #16a34a;
+    }
+
+    input[type="text"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #16a34a;
+    }
+
+    .register-btn {
+      width: 100%;
+      background-color: #16a34a;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .register-btn:hover {
+      background-color: #15803d;
+    }
+
+    .welcome{
+      text-align: center;
+      margin-top: 16px;
+      font-size: 14px;
+      font-family:Arial, Helvetica, sans-serif;
+      font-weight: bold;
+    }
+
+    /* .login-link a {
+      color: #16a34a;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .login-link a:hover {
+      text-decoration: underline;
+    } */
+
+    /* Responsive */
+    @media (max-width: 500px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+
+
+  <div class="form-header" >
+    <h2>Register as Seller</h2>
+    <p>Join thousands of farmers and buyers in our growing network</p>
+  </div>
+
+  <div class="container">
+    <form>
+      <div class="form-group">
+        <label><i>👤</i> Full Name</label>
+        <input type="text" placeholder="Enter your full name" required>
+      </div>
+
+      <div class="form-group">
+        <label><i>📞</i> Phone Number</label>
+        <input type="tel" placeholder="+91 98765 43210" required>
+      </div>
+
+      <div class="form-group">
+        <label><i>📍</i> District</label>
+        <input type="text" placeholder="Enter your district" required>
+      </div>
+
+      <div class="form-group">
+        <label><i>🌾</i> Interested Crops</label>
+        <input type="text" placeholder="e.g., Tomatoes, Onions, Wheat (comma separated)">
+      </div>
+
+      <button type="submit" class="register-btn">Register Now</button>
+    </form>
+
+    <div class="welcome">
+        Join with us now.
+    </div>
+  </div>
+
+{%endblock%}

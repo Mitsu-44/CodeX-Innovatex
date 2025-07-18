@@ -1,0 +1,294 @@
+{% extends 'main/base.html'%}
+
+{% block content%}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      color: #0f172a;
+      /* display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; */
+      min-height: 100vh;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      background-color: #f0fdf4;
+      gap: 40px;
+    }
+
+    .hero-content {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+
+    .hero-content h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .hero-content h1 span {
+      color: #16a34a;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: #475569;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons button {
+      padding: 12px 24px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      margin-right: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: #22c55e;
+      color: white;
+      box-shadow: 0 4px 10px rgba(34, 197, 94, 0.4);
+    }
+
+    .btn-primary:hover {
+      background-color: #16a34a;
+    }
+
+    .btn-secondary {
+      background-color: white;
+      color: #22c55e;
+      border: 2px solid #22c55e;
+    }
+
+    .btn-secondary:hover {
+      background-color: #e7f9ef;
+    }
+
+   .hero-image img {
+  width: 100%;
+
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+    /* .hero-img{
+        height: 100%;
+    } */
+
+    .hero-image img {
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-image img:hover {
+  transform: scale(1.05) translateY(10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+    /* Features Section */
+    .features-section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .features-section h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 40px;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .feature-card {
+      background-color: #f0fdf4;
+      border-radius: 12px;
+      padding: 30px 20px;
+      max-width: 300px;
+      min-height: 200px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: transform 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+      color: #16a34a;
+    }
+
+    .feature-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 14px;
+      color: #475569;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-content, .hero-image {
+        max-width: 100%;
+      }
+
+      .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-buttons button {
+        margin: 8px 0;
+        width: 80%;
+      }
+
+      .features {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+     .cta-footer {
+      
+      border-radius: 20px;
+      padding: 50px 40px;
+      text-align: center;
+      max-width: 800px;
+      
+    }
+
+    .cta-footer .icon {
+      font-size: 48px;
+      color: #22c55e; /* tailwind-style green */
+      margin-bottom: 20px;
+    }
+
+    .cta-footer h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 20px;
+    }
+
+    .cta-footer p {
+      font-size: 16px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .cta-button {
+      background-color: #16a34a;
+      color: white;
+      padding: 14px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #15803d;
+    }
+
+    .footer{
+        display: flex;
+        justify-content: center;
+        background-color:  hsl(152, 100%, 50%);
+    }
+    .hero-buttons a{
+        color:white;
+        text-decoration:none;
+
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Connect Farmers to <span>Markets Directly</span></h1>
+      <p>Farm2Market bridges the gap between farmers and buyers, providing real-time crop prices and direct connections to reduce middleman costs and increase farmer profits.</p>
+      <div class="hero-buttons">
+       <button class="btn-primary"><a href="{%url 'prices'%}">📈 View Prices</a></button>
+        <button class="btn-secondary"><a href="{%url 'sellers'%}">🤝 Find Buyers</a></button>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img class="hero-img" src="https://media.istockphoto.com/id/870380888/photo/paddy-field-closeup.webp?a=1&b=1&s=612x612&w=0&k=20&c=7VxvFtntbPuCS6lkp8BF8kaRMZTyUrSVTL3BIeO8kjs="  alt="Rice crop">
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features-section">
+    <h2>Why Choose Farm2Market?</h2>
+    <div class="features">
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <div class="feature-title">Real-Time Prices</div>
+        <div class="feature-desc">Get updated market prices for vegetables and crops across different regions.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔗</div>
+        <div class="feature-title">Direct Connection</div>
+        <div class="feature-desc">Connect directly with verified buyers and sellers without intermediaries.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📍</div>
+        <div class="feature-title">Local Markets</div>
+        <div class="feature-desc">Find buyers and sellers in your district for faster, cheaper transactions.</div>
+      </div>
+    </div>
+  </section>
+
+ <div class="footer">
+    <div class="cta-footer">
+    <div class="icon">🍃</div> <!-- Replace with an SVG if needed -->
+    <h2>Join the Agricultural Revolution</h2>
+    <p>
+      Whether you're a farmer looking to sell or a buyer seeking fresh produce,
+      Farm2Market is your gateway to transparent, profitable agriculture.
+    </p>
+    <a href="#" class="cta-button">Get Started Today</a>
+</div>
+  </div>
+
+{% endblock %}
