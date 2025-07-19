@@ -226,6 +226,7 @@
 
     .cta-button:hover {
       background-color: #15803d;
+      color: black;
     }
 
     .footer{
@@ -251,7 +252,7 @@
       <h1>Connect Farmers to <span>Markets Directly</span></h1>
       <p>Farm2Market bridges the gap between farmers and buyers, providing real-time crop prices and direct connections to reduce middleman costs and increase farmer profits.</p>
       <div class="hero-buttons">
-       <button class="btn-primary"><a href="{%url 'prices'%}">📈 View Prices</a></button>
+       <button class="btn-primary"><a href="{%url 'market'%}">📈 View Prices</a></button>
         <button class="btn-secondary"><a href="{%url 'sellers'%}">🤝 Find Buyers</a></button>
       </div>
     </div>
@@ -290,7 +291,7 @@
       Whether you're a farmer looking to sell or a buyer seeking fresh produce,
       Farm2Market is your gateway to transparent, profitable agriculture.
     </p>
-    <a href="#" class="cta-button">Get Started Today</a>
+    <a href="{%url 'sellers'%}" class="cta-button">Get Started Today</a>
 </div>
   </div>
 

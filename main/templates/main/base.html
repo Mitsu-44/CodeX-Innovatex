@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>{%block title%}Farm2Fresh{%endblock%}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Bootstrap Icons CDN -->
 
@@ -15,7 +15,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
-
+ <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  rel="stylesheet">
 
 
 <style>
@@ -74,26 +75,63 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <!-- Optional brand/logo -->
-    <a class="navbar-brand" href="{%url 'home'%}">Farm2Market</a>
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="{% url 'home' %}">
+      <i class="fa-solid fa-leaf" style="color: #63E6BE;"></i> Farm2Market
+    </a>
 
     <!-- Navbar items aligned to the right -->
     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
       <li class="nav-item">
-        <a class="nav-link active" href="{%url 'home'%}">Home</a>
+        <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'home' %}"><i class="bi bi-house"></i> Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{%url 'prices' %}">Price</a>
+        <a class="nav-link {% if request.path == '/about/' %}active{% endif %}" href="{% url 'about' %}"><i class="bi bi-chat-dots"></i> About Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{%url 'sellers'%}">Seller</a>
+        <a class="nav-link {% if request.path == '/prices/' %}active{% endif %}" href="{% url 'market' %}"><i class="bi bi-shop"></i> Markets</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{%url 'register'%}">Register Seller</a>
+        <a class="nav-link {% if request.path == '/sellers/' %}active{% endif %}" href="{% url 'sellers' %}"> <i class="bi bi-bag"></i> Buyers</a>
       </li>
+
+      {% if user.is_authenticated %}
+      <!-- User dropdown when logged in -->
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          id="userDropdown"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <i class="fa-solid fa-user"></i> {{ user.username }}
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+          <li><a class="dropdown-item" href="{% url 'dashboard' %}">Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li>
+            <form method="post" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button type="submit" class="dropdown-item">Logout</button>
+            </form>
+          </li>
+        </ul>
+      </li>
+      {% else %}
+      <!-- Show Register and Login links if not logged in -->
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/register/' %}active{% endif %}" href="{% url 'register' %}"><i class="bi bi-person-plus"></i> Register Seller</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link {% if request.path == '/login/' %}active{% endif %}" href="{% url 'login' %}"><i class="bi bi-file-earmark-text"></i> Login</a>
+      </li>
+      {% endif %}
     </ul>
   </div>
 </nav>
+
         </header>
     <main>
     {%block content%}
@@ -102,6 +140,8 @@
     </main>
 
 
-   
+   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+
 </body>
 </html>

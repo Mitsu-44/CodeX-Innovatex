@@ -16,8 +16,19 @@ class Prices(models.Model):
     unit=models.CharField(max_length=10)
     price=models.IntegerField(default=0)
     last_updated=models.DateField(auto_now=True)
-    
     def __str__ (self):
         return self.vegie_name
+
+class ContactMessage(models.Model):
+    seller = models.ForeignKey('Sellers', on_delete=models.CASCADE, related_name='messages')
+    sender_name = models.CharField(max_length=100)
+    sender_phone = models.CharField(max_length=20)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Message from {self.sender_name} to {self.seller.user.username}"
+    
+    
 
 

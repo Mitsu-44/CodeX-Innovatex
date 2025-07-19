@@ -1,0 +1,105 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<style>
+  /* Use your theme's font and colors */
+  .about-section {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 40px 20px;
+    background: #f0fdf4; /* light greenish background */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(22, 163, 74, 0.15); /* subtle green shadow */
+    font-family: 'Inter', sans-serif;
+    color: #134e21;
+  }
+
+  .about-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 24px;
+    color: #16a34a; /* your main green */
+  }
+
+  .about-section p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: 0 auto 28px;
+    text-align: center;
+  }
+
+  .about-section p strong {
+    color: #14532d; /* darker green for emphasis */
+  }
+
+  .mission-cards {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mission-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.1);
+    padding: 28px 24px;
+    flex: 1 1 280px;
+    max-width: 320px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+    color: #166534;
+  }
+
+  .mission-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(22, 163, 74, 0.25);
+    background-color: #d1fae5; /* light green background on hover */
+  }
+
+  .mission-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .mission-card p {
+    font-size: 1rem;
+    color: #14532d;
+  }
+
+  @media (max-width: 768px) {
+    .mission-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+
+<section class="about-section">
+  <h2>About Us</h2>
+  <p>
+    Welcome to <strong>Farm2Market Green Pages</strong> — your digital bridge connecting local farms and fresh food lovers.
+    We make accessing sustainable and seasonal produce easier than ever.
+  </p>
+  <p>
+    Our mission is to empower farmers and communities by promoting transparency, convenience, and eco-friendly food sourcing.
+  </p>
+
+  <div class="mission-cards text-center">
+    <div class="mission-card">
+      <h3>🌱 Our Mission</h3>
+      <p>Support sustainable farming and eco-friendly food systems through accessible technology.</p>
+    </div>
+    <div class="mission-card text-center">
+      <h3>🤝 Our Vision</h3>
+      <p>Build a future where communities thrive on fresh, local, and responsible produce sourcing.</p>
+    </div>
+    <div class="mission-card text-center">
+      <h3>💚 Our Values</h3>
+      <p>Transparency, community support, environmental respect, and food quality.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}
