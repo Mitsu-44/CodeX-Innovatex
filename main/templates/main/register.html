@@ -49,14 +49,7 @@
     margin-bottom: 20px;
   }
 
-  label {
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 6px;
-    display: block;
-  }
-
-  input {
+  input, select {
     width: 100%;
     padding: 12px;
     border: 1px solid #d1d5db;
@@ -70,7 +63,7 @@
     border-color: #16a34a;
   }
 
-  .login-btn {
+  .register-btn {
     width: 100%;
     background-color: #16a34a;
     color: white;
@@ -84,56 +77,49 @@
     transition: background-color 0.3s ease;
   }
 
-  .login-btn:hover {
+  .register-btn:hover {
     background-color: #15803d;
   }
 
-  .account-prompt {
+  .welcome {
     text-align: center;
     margin-top: 16px;
     font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
   }
 
-  @media (max-width: 500px) {
-    .container {
-      margin: 20px;
-      padding: 20px;
-    }
+  .form-error {
+    color: red;
+    font-size: 13px;
   }
+
 </style>
 
 <div class="form-header">
-  <h2>Seller Login</h2>
-  <p>Login to manage your profile and messages</p>
+  <h2>Register as Seller</h2>
+  <p>Join thousands of farmers and buyers in our growing network</p>
 </div>
 
 <div class="container">
   <form method="POST">
     {% csrf_token %}
 
-    {% if form.errors %}
-      <div class="alert alert-danger">
-        Invalid username or password.
+    {% for field in form %}
+      <div class="form-group">
+        {{ field.label_tag }}
+        {{ field }}
+        {% if field.errors %}
+          <div class="form-error">{{ field.errors }}</div>
+        {% endif %}
       </div>
-    {% endif %}
+    {% endfor %}
 
-    <div class="form-group">
-      <label for="id_username">Username</label>
-      {{ form.username }}
-    </div>
-
-    <div class="form-group">
-      <label for="id_password">Password</label>
-      {{ form.password }}
-    </div>
-
-    <button type="submit" class="login-btn">Login</button>
+    <button type="submit" class="register-btn">Register Now</button>
   </form>
 
-  <div class="account-prompt">
-    Don’t have an account? <a href="{% url 'register' %}">Register</a>
+  <div class="welcome">
+    Already registered? <a href="{% url 'login' %}">Login to your account</a>
   </div>
 </div>
-
 {% endblock %}

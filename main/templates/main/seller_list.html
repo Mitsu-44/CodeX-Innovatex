@@ -7,13 +7,17 @@
   }
 
   .seller-card {
+    max-width:300px;
+    margin:auto;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    padding: 28px;
+    padding: 16px;
+    font-size:14px;
     background: #fff;
     transition: all 0.4s ease;
     transform: scale(1);
     height: 100%;
+
   }
 
   .seller-card:hover {
@@ -74,10 +78,10 @@
   <h2 class="text-center fw-bold mb-4">Available Sellers</h2>
   <div class="row gy-4">
     {% for seller in sellers %}
-    <div class="col-md-4">
+    <div class="col-lg-3 col-md-4 col-sm-6">
       <div class="seller-card">
         <div class="d-flex justify-content-between align-items-start mb-3">
-          <h4 class="fw-bold">{{ seller.name }}</h4>
+          <h4 class="fw-bold">{{  seller.user.username }}</h4>
           <span class="badge badge-verified">Verified</span>
         </div>
         <p class="text-muted"><i class="bi bi-geo-alt"></i> {{ seller.location }}</p>

@@ -13,9 +13,9 @@
           <tr>
             <th scope="col">SN</th>
             <th scope="col">Vegetable</th>
-            <th scope="col">Min Price (Rs)</th>
-            <th scope="col">Max Price (Rs)</th>
-            <th scope="col">Average Price (Rs)</th>
+            <th scope="col">Unit</th>
+            <th scope="col">Price (₹)</th>
+          
           </tr>
         </thead>
         <tbody>
@@ -23,9 +23,8 @@
           <tr>
             <td>{{ forloop.counter }}</td>
             <td>{{ price.vegie_name }}</td>
-            <td>{{ price.min_price }}</td>
-            <td>{{ price.max_price }}</td>
-            <td>{{ price.avg }}</td>
+            <td>{{ price.unit }}</td>
+            <td>{{ price.price }}</td>
           </tr>
           {% empty %}
           <tr>

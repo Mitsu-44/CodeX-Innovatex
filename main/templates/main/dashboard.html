@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Welcome, {{ request.user.username }}!</h2>
+  <p>This is your seller dashboard.</p>
+  <!-- Later you can show seller info, messages, etc. here -->
+</div>
+{% endblock %}
